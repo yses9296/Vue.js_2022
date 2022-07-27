@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue - Tutorial #04-2</title>
+    <style>
+        /* reset */
+        * {margin: 0; padding: 0;}
+        ul,li {list-style: none;}
+        a {text-decoration: none; color: #fff;}
+        /* layout */
+        .dropdown ul {
+            display: none;
+            margin: 0;
+            border: 1px solid #000;
+            padding: 10px;
+            width: 200px;
+        }
+        .dropdown.on ul {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <!-- <image :id="`thumbnail_${id}`" :src="image"></image> -->
+        <button type="button" @click="btnClick">DropDown</button>
+        <div :style="[style, fontStyle]" :class="[dropdown, toggle]">
+            <ul>
+                <li><a href="#">Menu 1</a></li>
+                <li><a href="#">Menu 2</a></li>
+                <li><a href="#">Menu 3</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    id: 1,
+                    image: 'https://picsum.photos/200/200/?image=353',
+                    style: {
+                        background: 'rgb(255,140,50)',
+                        color: '#fff'
+                    },
+                    fontStyle: {
+                        fontSize: '32px',
+                        fontFamily: 'dotum'
+                    },
+                    dropdown: 'dropdown',                      
+                    toggle: {
+                        on: true
+                    },
+                }
+            },
+            methods: {
+                btnClick(){
+                    this.toggle.on = ! this.toggle.on;
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>

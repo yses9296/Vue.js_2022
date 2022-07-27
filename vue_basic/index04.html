@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vue - Tutorial #04</title>
+    <title>Vue - Tutorial #04-1</title>
 </head>
 <body>
 <div id="app">
-    <button type="button" v-on:click="add">Add</button>
+    <button type="button" @click="add">Add</button> 
     {{ counter }}
+    <input type="text" @keyup.enter="keyUp"></input>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -24,6 +25,13 @@
         methods: {
             add(){
                 this.counter++;
+            },
+            keyUp(e){
+                if(e.keyCode != 13){
+                    console.log('Not Enter Key');
+                    return;
+                }
+                console.log('Enter Key is pressed')
             }
         }
     })
