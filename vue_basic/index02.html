@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul, li {
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <ul>
+            <template v-for="item in items">
+                <li>
+                    <img :src="item.image">
+                </li>
+                <li>
+                    {{ item.title }}
+                </li>
+            </template>
+            
+        </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    items: [
+                        {
+                            id: 1,
+                            image: 'https://picsum.photos/210/118/?imgae=1',
+                            title: 'vegetables'
+                        },
+                        {
+                            id: 2,
+                            image: 'https://picsum.photos/210/118/?imgae=100',
+                            title: 'sunset'
+                        },
+                        {
+                            id: 3,
+                            image: 'https://picsum.photos/210/118/?imgae=160',
+                            title: 'ocean'
+                        },
+                        {
+                            id: 4,
+                            image: 'https://picsum.photos/210/118/?imgae=200',
+                            title: 'forest'
+                        }
+                    ]
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>
