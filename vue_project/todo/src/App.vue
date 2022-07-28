@@ -5,14 +5,20 @@
         <h1 class="text-center mb-4">Todo Application</h1>
         <input type="text" class="form-control mb-4" v-model="userInput" @keyup.enter="addNewTodo">
 
-        <div class="list-group">
-          <template v-for="todo in activeTodoList()" :key="todo">
+        <div class="list-group mb-4">
+          <template v-for="todo in activeTodoList" :key="todo">
             <button class="list-group-item text-left"  @click="toggleTodoState(todo)">
               {{ todo.label }}
             </button>
           </template>
-
         </div>
+
+        <div class="text-right">
+          <button type="button" class="btn btn-sm" @click="changeCurrentState('active')">To Do</button>
+          <button type="button" class="btn btn-sm" @click="changeCurrentState('done')">Completed</button>
+          <button type="button" class="btn btn-sm" @click="changeCurrentState('all')">Total</button>
+        </div>
+
       </div>
     </div>
   </div>
@@ -24,13 +30,16 @@
     data() {
       return {
         userInput: '',
-        todoList: []
+        todoList: [],
+        currentState: 'active'
       };
     },
-    methods: {
+    computed: {
       activeTodoList(){
-        return this.todoList.filter(todo => todo.state === 'active');
-      },
+        return this.todoList.filter(todo => this.currentState === 'all' || todo.state === this.currentState);
+      }
+    },
+    methods: {
       addNewTodo(){
         this.todoList.push({
           label: this.userInput,
@@ -40,6 +49,9 @@
       },
       toggleTodoState(todo){
         todo.state = todo.state == 'active' ? 'done' : 'active';
+      },
+      changeCurrentState(state){
+        this.currentState = state;
       }
     },
     component: {
