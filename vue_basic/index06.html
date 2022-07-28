@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue - Tutorial #05</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="container mx-auto mt-20">
+            <div class="flex">
+                <product 
+                    image="https://picsum.photos/300/200?image=0" 
+                    avatar="https://picsum.photos/30/30?image=80"
+                    title="Laptop" 
+                    desc="Description for Laptop">
+                </product>
+                <product 
+                    image="https://picsum.photos/300/200?image=3" 
+                    avatar="https://picsum.photos/30/30?image=100"
+                    title="iPhone" 
+                    desc="Description for iPhone">
+                </product>
+                <product 
+                    image="https://picsum.photos/300/200?image=23" 
+                    avatar="https://picsum.photos/30/30?image=110"
+                    title="Fork" 
+                    desc="Description for Fork">
+                </product>
+                <product 
+                    image="https://picsum.photos/300/200?image=24" 
+                    avatar="https://picsum.photos/30/30?image=70"
+                    title="Book" 
+                    desc="Description for Book">
+                </product>
+            </div>
+        </div>
+    </div>    
+
+    <!-- script -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        Vue.component('product', {
+            props: ['image', 'title', 'desc', 'avatar'],
+            template: `
+            <div class="flex-1 px-5">
+                <div class="max-w-sm rounded overflow-hidden shadow-lg">
+                    <img :src="image" class="w-full">
+                    <div class="px-6 py-4">
+                        <div class="relative">
+                            <div class="absolute pin-l pin-t bg-white border border-pear-dark rounded-full" style="margin-top: -2.5rem">
+                                <img class="block rounded-full" :src="avatar" width="30">
+                            </div>
+                        </div>
+                        <div class="font-bold text-xl mb-2">{{ title }}</div>
+                        <p class="text-grey-darker text-base">
+                            {{ desc }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            `
+        });
+
+        let app =new Vue({
+            el: '#app',
+            data() {
+                return {
+
+                }
+            }
+        });
+    </script>
+</body>
+</html>
