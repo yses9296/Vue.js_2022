@@ -15,7 +15,8 @@ let config = {
             {
                 test: /\.vue$/,
                 exclude: /node_modules/,
-                use: 'vue-loader'
+                use: 'vue-loader',
+                loader: 'vue-loader'
             }
         ]
     },
@@ -26,7 +27,7 @@ let config = {
 };
 
 module.exports = (env, argv) => {
-    let vue = 'vue/dist/vue.js';
+    let vue = 'vue/dist/vue.esm-browser.js'; //vue.js...
 
     if(argv.mode === 'production'){
         vue = 'vue/dist/vue.min.js';

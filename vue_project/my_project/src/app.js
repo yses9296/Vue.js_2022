@@ -1,4 +1,7 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-
-createApp(App).mount('#app')
+import Vue from 'vue';
+import Product from './components/Product.vue'
+new Vue({
+    components: {
+        Product
+    }
+}).$mount('#app')
