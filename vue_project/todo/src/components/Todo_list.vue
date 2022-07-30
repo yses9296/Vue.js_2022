@@ -1,5 +1,5 @@
 <template>
-    <button class="list-group-item text-left"  @click="clickButton">
+    <button type="button" class="list-group-item text-left"  @click="clickButton">
         {{ label }}
     </button>
 </template>

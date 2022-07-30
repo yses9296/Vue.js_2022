@@ -7,7 +7,7 @@
 
         <div class="list-group mb-4">
           <template v-for="todo in activeTodoList" :key="todo">
-            <Todo :label="todo.label" @componentClick="toggleTodoState(todo)"></Todo>
+            <Todo_list :label="todo.label" @componentClick="toggleTodoState(todo)"/>
           </template>
         </div>
 
@@ -23,7 +23,7 @@
 </template>
 
 <script>
-  import Todo from './components/Todo.vue';
+  import Todo_list from './components/Todo_list';
 
   export default {
     name: 'app',
@@ -55,7 +55,7 @@
       }
     },
     components: {
-      Todo
+      Todo_list
     }
   }
 </script>
